@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/uploads.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="/uploads" method="post" enctype="multipart/form-data">
+        <label for="filename">File Name</label>
+        <input type="text" name="pdfname" id="filename">
+        <input type="file" name="file" id="file">
+        <button type="submit">Submit</button>
+    </form> -->
+    <a href="/profile" class="back"><button>Back To Profile</button></a>
+    <form action="/uploads" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <!-- <div class="logo">
+                <img src="images/athena-logo-removebg-preview.jpg" alt="avatar" srcset="">
+            </div> -->
+            <div class="app-name"><p>File Upload</p></div>
+            <div class="login-box">
+        <!-- <label class="input" for="user"  >Username</label> -->
+        <span class="center">
+            <!-- <div class="logo">
+                <img src="images/1077114.png" alt="avatar" srcset="">
+             </div> -->
+        <input class="input" placeholder=" Enter File Name" type="text" name="pdfname" id="user" style="color: black; outline: none;">
+        </span>
+        <span class="center">
+            <!-- <div class="logo">
+                <img src="images/download.png" alt="avatar" srcset="">
+             </div> -->
+            <input class="input ifile"  type="file" name="file" id="file" style="color: black; outline: none;">
+        </span>
+         
+        <!-- <label class="input" class="input" for="Pass" >Password</label> -->
+        
+        <button class="input" type="submit">Upload</button>
+        <p id="pu" class="err"><%= message %></p>
+            </div>
+            <p class="para">Athena BPO Pvt.Ltd</p>
+        </div>
+        
+    </form>
+    
+    
+</body>
+<script src="/javascripts/upload.js"></script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/loginpanal.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="agent-console">
+        <p>Agent Console</p>
+        <a href="/profile" class="back"><button>Back To Profile</button></a>
+        <a href="/adminlogout" class="refresh"><button>Refresh</button></a>
+    </div>
+<div class="body">
+    <% let userslog = loginUser %>
+    <% userslog.forEach((e)=>{ %>
+        <div class="user_name">
+            <span class="spn"><%=e.user_name%></span> <button class="btn"  id="<%=e.user_login_id%>">logout</button>
+        </div>
+        
+    <% }) %>
+</div>
+   
+</body>
+<script src="/javascripts/loginpanal.js"></script>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/profile1.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="avatar">
+            <img src="images/1077114.png" alt="avatar" srcset="">
+        </div>
+        <div class="user_name "><p><%= user%></p>
+            <input type="hidden" id="role" value="<%= Role%>">
+            <input type="hidden" id="user_id" value="<%= userId%>">
+        </div>
+        <div id="emt" class="emt-box center">
+        </div>
+        <form action="/adminlogout" method="get">
+            <button id="ac" class="bttn hidden" type="submit">Agent Console</button>
+        </form>
+        <form action="/register" method="get">
+            <button id="au" class="bttn hidden" type="submit">Add User</button>
+        </form>
+        <form action="/uploads" method="get">
+            <button id="af" class="bttn hidden" type="submit">Add file</button>
+        </form>
+            <button id="ar" class="bttn rptbt hidden " type="submit">Reports</button>
+        <form action="/reports" method="post">
+           <div class="rep-box" id="rep-boxid">
+            
+                <span class="rep-box-sp2">
+                    <label for="date1" style="font-size: 12px; display: inline;">From Date :</label>
+                    <input style="display: inline;" type="date" id="date1" name="effdate1" minlength="1" maxlength="20" placeholder="From date" autocomplete="nope" required="required">
+                </span>
+                <span class="rep-box-sp3">
+                    <label for="date2" style="font-size: 12px; display: inline;">To Date :</label>
+                    <input style="display: inline;" type="date" id="date2" name="effdate2" minlength="1" maxlength="20" placeholder="From date" autocomplete="nope" required="required">
+                </span>
+                <span class="rep-box-sp1">
+                    <label for="date1" style="font-size: 12px; display: inline;">Select Reports :</label>
+                    <select name="reportinput" class="sel-report"  id="rep-i">
+                        <option value="Total_login_time">Total Login Time</option>
+                        <option value="Agent_Activity_Report">Agent Activity Report</option>
+                    </select>
+                </span>
+                  <span class="rpt-btn-body">
+                    <button style="display: inline;" class="rpt-btn" type="submit">Download</button>
+                    <button style="display: inline;" class="rpt-btn" type="button" id="Cancel">Cancel</button>
+                </span>
+            
+          </div>
+        </form>
+        <div class="log center">
+            <form action="/logout" method="post">
+                <button type="submit" class="hidden" id="al">Logout</button>
+            </form>   
+        </div>
+        <div class="clock" id="clo">
+            <span id="hr"></span>
+            <span id="min"></span>
+            <span id="sec"></span>
+        </div>
+        
+    </div>
+ <div>
+        <div class="sel-container center">
+            <select class="sel-box" id="selc" aria-placeholder="select file to open">
+                <option value="/html_file/placeholder.html" selected>Select File</option>
+                <% const pdf_data =pdfdata %>
+                <% pdf_data.forEach( file=> {%>
+                    <option class="pdfs" id="<%=file.id %>" value="/uploads/<%=file.filename %>.pdf"><%=file.filename%></option>
+               <% }); %>
+
+                <!-- <option value="">gaurav1</option>
+                <option value="">gaurav2</option>
+                <option value="">gaurav3</option>
+                <option value="">gaurav4</option>
+                <option value="">gaurav5</option>
+                <option value="">gaurav6</option>
+                <option value="">gaurav7</option>
+                <option value="">gaurav8</option> -->
+            </select>
+        </div>
+        <!-- './uploads/dummy1.pdf' -->
+     <!--  -->
+    </div> 
+    <div class="if">
+        <iframe class="iframe" id="ifr" src="/html_file/placeholder.html" frameborder="0">
+        </iframe>
+    </div> 
+    <footer class="center">
+        <p>Powered by Athena BPO Pvt.Ltd</p>
+    </footer>
+</body>
+<script src="/javascripts/profile1.js"></script>
+</html>

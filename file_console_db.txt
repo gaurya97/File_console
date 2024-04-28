@@ -1,0 +1,54 @@
+create table test.users(
+id int auto_increment primary key ,
+user_name varchar(55),
+user_id varchar(55),
+user_role varchar(55),
+password varchar(20)
+);
+
+select * from users order by id desc;
+drop table users;
+
+create table user_sessions(
+id int auto_increment primary key,
+user_name varchar(55),
+user_login_id varchar(55),
+user_id varchar(55),
+agent_status varchar(55),
+session_start_date date,
+session_start_time time,
+session_end_date date,
+session_end_time time,
+logout_status varchar(120)
+
+
+);
+drop table user_sessions;
+truncate table user_sessions;
+select * from user_sessions;
+use test;
+select user_name,sec_to_time(sum(dff))as total_login_time from  (select *,(session_end_time-session_start_time) as dff from user_sessions) as xyz group by user_name , session_start_date ;
+
+create table scripts(
+id int auto_increment primary key,
+filename varchar(55),
+filepath varchar(60)
+);
+select * from scripts;
+truncate table scripts;
+select * from user_sessions;
+select * from user_sessions where user_name ='gaurav jadhav' order by id desc limit 1;
+use test;
+
+select user_name as Agent_Name, session_start_date as date ,agent_status, sec_to_time(sum(dff))as login_time_distribution from  
+(select *,timestampdiff(SECOND,session_start_time,session_end_time)as dff from user_sessions) as xyz group by user_name ,agent_status, session_start_date ;
+
+
+select *,timestampdiff(SECOND,session_start_time,session_end_time)as dff from user_sessions where user_name ='prakash m';
+
+select user_name as Agent_Name, session_start_date as date , sec_to_time(sum(dff))as total_login_time from  
+(select *,timestampdiff(SECOND,session_start_time,session_end_time)as dff from user_sessions ) as xyz group by user_name , session_start_date ;
+
+
+select user_name as Agent_Name, date_format(session_start_date,'%d-%m-%y') as date , sec_to_time(sum(dff))as total_login_time from  
+    (select *,timestampdiff(SECOND,session_start_time,session_end_time)as dff from user_sessions where session_start_date between '2024-01-01' and '2024-01-15' ) as xyz group by user_name , session_start_date ;

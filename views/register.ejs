@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/register.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="/register" method="post">
+        <input type="text" name="username" id="user">
+        <input type="text" name="userid" id="user_id">
+        <input type="password" name="password" id="pass">
+        <button type="submit">submit</button>
+    </form> -->
+    <a href="/profile" class="back"><button>Back To Profile</button></a>
+    <form action="/register" method="post">
+        <div class="container">
+            <!-- <div class="logo">
+                <img src="images/athena-logo-removebg-preview.jpg" alt="avatar" srcset="">
+            </div> -->
+            <div class="app-name"><p>File Console</p></div>
+            <div class="login-box">
+        <!-- <label class="input" for="user"  >Username</label> -->
+        <span class="center">
+            <!-- <div class="logo">
+                <img src="images/1077114.png" alt="avatar" srcset="">
+             </div> -->
+        <input class="input" placeholder=" Enter Username" type="text" name="username" id="user" style="color: black; outline: none;">
+        </span>
+        <input class="input" type="input" name="userid" placeholder=" Enter UserId" id="UserId" style="color: black; outline: none;">
+        <span class="center">
+            <!-- <div class="logo">
+                <img src="images/download.png" alt="avatar" srcset="">
+             </div> -->
+            <input class="input" type="password" name="password" placeholder=" Enter Password" id="pass" style="color: black; outline: none;">
+        </span>
+         
+        <span class="center">
+            <label for="role" style="color: white;">Select Role</label>
+            <select class="sel" name="role" id="role">
+                <option  value="Agent">Agent</option>
+                <option  value="Opsam">Opsam</option>
+                <option  value="Admin">Admin</option>
+            </select>
+        </span>
+        <!-- <label class="input" class="input" for="Pass" >Password</label> -->
+        
+        <button class="input" type="submit">Register</button>
+        <p id="pe" class="err"><%= register %></p>
+            </div>
+        </div>
+        
+    </form>
+    
+
+
+
+</body>
+<script src="/javascripts/register.js"></script>
+</html>
